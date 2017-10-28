@@ -11,6 +11,7 @@ const bodyParser = require('body-parser');
 const { port, dbURI, env } = require('./config/environment');
 const customResponses = require('./lib/customResponses');
 const errorHandler = require('./lib/errorHandler');
+const routes = require('./config/routes');
 
 mongoose.connect(dbURI, { useMongoClient: true });
 
@@ -19,6 +20,8 @@ app.use(express.static(`${__dirname}/public`));
 app.use(bodyParser.json());
 
 app.use(customResponses);
+
+app.use('/api', routes);
 
 app.get('/*', (req, res) => res.sendFile(`${__dirname}/public/index.html`));
 

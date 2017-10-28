@@ -1,8 +1,8 @@
 import React from 'react';
-import OAuth from '../lib/OAuth';
+import OAuth from '../../lib/OAuth';
 import queryString from 'query-string';
 import Axios from 'axios';
-import Auth from '../lib/Auth';
+import Auth from '../../lib/Auth';
 import { withRouter } from 'react-router-dom';
 
 class OAuthButton extends React.Component {
@@ -20,7 +20,7 @@ class OAuthButton extends React.Component {
     // console.log(data);
     //send the code to the api
     Axios.post(this.provider.url, data)
-      .then(res => Auth.setToken(res.data.token))
+      .then(res => Auth.setToken(res.data.token, res.data.refreshToken))
       .then(() => localStorage.removeItem('provider'))
       .then(() => this.props.history.replace(this.props.location.pathname))
       .then(() => this.props.history.push('/'));
@@ -37,7 +37,6 @@ class OAuthButton extends React.Component {
         onClick={this.setProvider}
       >
         {this.props.children}
-
       </a>
     );
   }

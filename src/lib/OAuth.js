@@ -2,10 +2,11 @@ import queryString from 'query-string';
 
 class OAuth {
   static providers = [{
-    name: 'github',
+    name: 'spotify',
     url: '/api/oauth/spotify',
     authEndpoint: 'https://accounts.spotify.com/authorize',
-    scope: 'user-read-email',
+    token_type: 'Bearer',
+    scope: ['user-read-private user-read-email'],
     clientId: '17afe3d1cb164ab9b778a06593fdc2a3'
   }];
 
@@ -13,7 +14,8 @@ class OAuth {
     const qs = {
       scope: provider.scope,
       client_id: provider.clientId,
-      redirect_uri: window.location.href
+      redirect_uri: window.location.href,
+      response_type: 'code'
     };
 
     return `${provider.authEndpoint}?${queryString.stringify(qs)}`;

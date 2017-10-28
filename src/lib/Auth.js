@@ -1,5 +1,6 @@
 class Auth {
-  static setToken(token) {
+  static setToken(token, refreshToken) {
+    localStorage.setItem('refreshToken', refreshToken);
     return localStorage.setItem('token', token);
   }
 
@@ -12,6 +13,7 @@ class Auth {
   }
 
   static logout() {
+    localStorage.removeItem('refreshToken');
     localStorage.removeItem('token');
   }
 

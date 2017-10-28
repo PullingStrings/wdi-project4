@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css?family=Concert+One');
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Concert One', cursive;
+  background: #fff;
+  color: #333;
+}
+
+
+hr {
+  border: 0;
+  height: 2px;
+  background: #333;
+  background-image: linear-gradient(to right, #fafafa, #eee, #fafafa);
+}
+
+.fa-cutlery {
+  position: relative;
+  top: -55px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  text-align: center;
+  font-size: 60px;
+  color: #eee;
+  background: #fff;
+  padding: 0 30px;
+}
+
+.image-tile {
+  margin-bottom: 30px;
+
+  img {
+    width: 100%;
+    border-radius: 2px;
+    padding: 4px;
+    background: rgba(72, 78, 76, 0.4);
+  }
+}
+
+button, .main-button, .standard-button {
+  margin-bottom: 20px;
+  padding: 5px 10px;
+  color: #fff;
+  border-radius: 2px;
+  font-weight: 600;
+  font-size: 18px;
+  outline: none;
+  display: inline-block;
+
+  i {
+    margin-right: 5px;
+  }
+}
+
+.standard-button {
+  background: #121111;
+  border-radius: 3px;
+  margin: 2px;
+
+  &:hover, &:focus {
+    color: #fff;
+    background: darken(#ccc, 10%);
+  }
+}
+
+.main-button {
+  background: #121111;
+  border-radius: 3px;
+
+  &:hover, &:focus {
+    color: #fff;
+    background: darken(#F31812, 10%);
+  }
+}
+
+.save-button {
+  background: #378B2E;
+  border: 1px solid lighten(#378B2E, 10%);
+
+  &:hover, &:focus {
+    color: #fff;
+    background: darken(#378B2E, 10%);
+  }
+}
+
+i {
+  margin-right: 5px;
+}
+
+main {
+  padding-top: 50px;
+}
+
+
+@media screen and (max-width: 750px) {
+  .fa-cutlery {
+    display: none;
+  }
+}
