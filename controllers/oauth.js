@@ -22,7 +22,7 @@ function spotify(req, res, next) {
     json: true
   })
     .then(token => {
-      console.log(token);
+
       refreshToken = token.refresh_token;
       return rp({
         method: 'GET',
@@ -45,6 +45,7 @@ function spotify(req, res, next) {
           }
 
           user.spotifyId = profile.id;
+          user.refreshToken = refreshToken;
           if(profile.images.length) user.image = profile.images[0].url;
           return user.save();
         });

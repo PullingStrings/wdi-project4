@@ -7,14 +7,11 @@ const userSchema = new mongoose.Schema({
   password: { type: String },
   spotifyId: { type: String },
   image: { type: String },
-  playlists: {
+  refreshToken: { type: String },
+  playlists: [{
     playlistId: { type: String },
     userId: { type: String }
-  },
-  tracks: {
-    playlistId: {type: String },
-    userId: { type: String }
-  }
+  }]
 });
 
 // userSchema

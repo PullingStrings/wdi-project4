@@ -7,29 +7,37 @@ import { withRouter } from 'react-router-dom';
 
 class OAuthButton extends React.Component {
   componentWillMount() {
-    this.provider = OAuth.getProvider(this.props.provider);
-    //if theres no code in the address bar, AND
-    //the provider in locaolStorage does not match this button
-    //stop here...
-    if(!this.props.location.search.match(/code/)
-    || localStorage.getItem('provider') !== this.props.provider) return false;
-    //get the querystring out of the address bar, as an Object
-    //{code: 'hahahhahaheieieiidkdkdk'}
-    const data = queryString.parse(this.props.location.search);
-    data.redirectUri = window.location.origin + window.location.pathname;
-    // console.log(data);
-    //send the code to the api
-    Axios.post(this.provider.url, data)
-      .then(res => Auth.setToken(res.data.token, res.data.refreshToken))
-      .then(() => localStorage.removeItem('provider'))
-      .then(() => this.props.history.replace(this.props.location.pathname))
-      .then(() => this.props.history.push('/'));
+    // grab `provider`, `location` and `history` from `this.props`
+    const { provider, location, history } = this.props;
+    // get the full provider data from `OAuth` class
+    this.provider = OAuth.getProvider(provider);
+    console.log(provider);
+
+    // if there's no code in the address bar OR the provider does not match that in localStorage, stop here.
+    if(!location.search.match(/code/) || localStorage.getItem('provider') !== provider) return false;
+
+    // send the code (and redirectUri) to the API
+    Axios.post(this.provider.url, this.getData())
+      .then(res => Auth.setToken(res.data.token, res.data.refreshToken)) // store the token in localStorage (you are now 'logged in')
+      .then(() => localStorage.removeItem('provider')) // remove the chosen provider from localStorage
+      .then(() => history.replace(location.pathname)) // remove the query string from the address bar
+      .then(() => history.push('/')); // redirect to the home page
   }
 
+  getData = () => {
+    // get the querystring out of the address bar, as an object
+    const data = queryString.parse(this.props.location.search);
+    // add the current URI as a redirectUri for facebook (and possibly some other oAuth providers)
+    data.redirectUri = window.location.origin + window.location.pathname;
+    return data;
+  }
+
+  // store the chosen provider name in localStorage
   setProvider = () => {
     localStorage.setItem('provider', this.props.provider);
   }
-  render(){
+
+  render() {
     return (
       <a
         className="btn btn-primary"
@@ -42,4 +50,5 @@ class OAuthButton extends React.Component {
   }
 }
 
+// wrap the component in `withRouter` to make history and location available via props
 export default withRouter(OAuthButton);

@@ -6,7 +6,7 @@ class OAuth {
     url: '/api/oauth/spotify',
     authEndpoint: 'https://accounts.spotify.com/authorize',
     token_type: 'Bearer',
-    scope: ['user-read-private user-read-email'],
+    scope: ['user-read-private user-read-email playlist-modify-public playlist-modify-private'],
     clientId: '17afe3d1cb164ab9b778a06593fdc2a3'
   }];
 

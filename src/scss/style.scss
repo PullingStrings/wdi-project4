@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Concert+One');
+@import url('https://fonts.googleapis.com/css?family=Raleway:300');
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'Concert One', cursive;
+  font-family: 'Raleway', sans-serif;
   background: #fff;
   color: #333;
 }
@@ -54,9 +54,9 @@ button, .main-button, .standard-button {
 }
 
 .standard-button {
-  background: #121111;
-  border-radius: 3px;
-  margin: 2px;
+  background: #58b955;
+  border-radius: 33px;
+  border: none;
 
   &:hover, &:focus {
     color: #fff;
