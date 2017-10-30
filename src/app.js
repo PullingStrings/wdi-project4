@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+
+
 import {BrowserRouter as Router, Link } from 'react-router-dom';
 
 import Navbar from './components/utility/NavBar';
@@ -15,15 +17,13 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <div className="container">
-          <header>
+        <div className="containerIndex">
+          <div className="boxMiddle">
             <h1><Link to="/">Play-Gen</Link></h1>
             <h2>Find playlists from people around you</h2>
             <Navbar />
-            <hr />
-          </header>
-
-          <Routes />
+            <Routes />
+          </div>
         </div>
       </Router>
     );

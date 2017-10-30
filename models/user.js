@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 // const bcrypt = require('bcrypt');
 
+const playlistSchema = new mongoose.Schema({
+  playlistId: { type: String },
+  userId: { type: String }
+});
+
 const userSchema = new mongoose.Schema({
   username: { type: String },
   email: { type: String},
@@ -8,10 +13,7 @@ const userSchema = new mongoose.Schema({
   spotifyId: { type: String },
   image: { type: String },
   refreshToken: { type: String },
-  playlists: [{
-    playlistId: { type: String },
-    userId: { type: String }
-  }]
+  playlists: [ playlistSchema ]
 });
 
 // userSchema

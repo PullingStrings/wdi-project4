@@ -22,7 +22,6 @@ function spotify(req, res, next) {
     json: true
   })
     .then(token => {
-
       refreshToken = token.refresh_token;
       return rp({
         method: 'GET',

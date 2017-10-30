@@ -20,10 +20,11 @@ router.route('/spotify/users/:spotifyId')
   .get(spotify.getUsersPlaylists);
 
 router.route('/spotify/users/:spotifyId/playlists/:playlistId')
-  .get(spotify.getPlaylists);
+  .get(spotify.getPlaylist);
 
 router.route('/spotify/users/:spotifyId/playlists/:playlistId/followers')
-  .put(secureRoute, spotify.followPlaylist);
+  .put(secureRoute, spotify.followPlaylist)
+  .delete(secureRoute, spotify.unfollowPlaylist);
 
 router.all('/*', (req, res) => res.notFound());
 
