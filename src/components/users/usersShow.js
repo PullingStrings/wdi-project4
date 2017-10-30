@@ -13,20 +13,22 @@ class UsersShow extends React.Component {
     Axios
       .get(`/api/users/${this.props.match.params.id}`)
       .then(res => this.setState({ user: res.data }, this.getUsersPlaylists))
+      .then(res => this.setState({ user: res.data }, this.getPlaylists))
       .catch(err => console.log(err));
   }
 
   getUsersPlaylists() {
     Axios
       .get(`/api/spotify/users/${this.state.user.spotifyId}`)
-      .then(res => this.setState({ playlists: res.data.items }))
+      .then(res => this.setState({ playlists: res.data.items }, () => console.log(res.data.items)))
       .catch(err => console.log(err));
   }
 
+
   getPlaylists() {
     Axios
-      .get(`/api/spotify/users/${this.state.user.spotifyId}/playlists/${this.state.user.playlistId}`)
-      .then(res => this.setState({ tracks: res.data }, () => console.log(res.data)))
+      .get(`/api/spotify/users/${this.state.user.spotifyId}/${this.state.user.playlistId}`)
+      .then(res => this.setState({ playlists: res.data }, () => console.log(res.data)))
       .catch(err => console.log(err));
   }
 
@@ -49,11 +51,18 @@ class UsersShow extends React.Component {
               <div className="image-tile col-md-6">
                 <img src={playlist.images[0].url}
                   className="img-responsive" />
+                <a href={playlist.tracks}>tracks</a>
               </div>
             </div>
           ))}
         </div>
-
+        {/* <div className="row">
+          {this.state.playlists && this.state.playlists.map(playlist => (
+            <div className="col-me-12" key={playlist.id}>
+              <a href={playlist.tracks}>tracks</a>
+            </div>
+          ))}
+        </div> */}
       </div>
     );
   }

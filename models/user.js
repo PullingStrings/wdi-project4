@@ -10,6 +10,10 @@ const userSchema = new mongoose.Schema({
   playlists: {
     playlistId: { type: String },
     userId: { type: String }
+  },
+  tracks: {
+    playlistId: {type: String },
+    userId: { type: String }
   }
 });
 

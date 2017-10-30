@@ -34,7 +34,7 @@ function getUsersPlaylists(req, res, next) {
     .catch(next);
 }
 
-function getPlaylist(req, res, next) {
+function getPlaylists(req, res, next) {
   return rp({
     method: 'POST',
     url: 'https://accounts.spotify.com/api/token',
@@ -62,4 +62,4 @@ function getPlaylist(req, res, next) {
     .catch(next);
 }
 
-module.exports = { getUsersPlaylists, getPlaylist };
+module.exports = { getUsersPlaylists, getPlaylists };

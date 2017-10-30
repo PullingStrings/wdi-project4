@@ -19,7 +19,7 @@ router.route('/spotify/users/:spotifyId')
   .get(spotify.getUsersPlaylists);
 
 router.route('/spotify/users/:spotifyId/playlists/:playlistId')
-  .get(spotify.getPlaylist);
+  .get(spotify.getPlaylists);
 
 router.all('/*', (req, res) => res.notFound());
 
