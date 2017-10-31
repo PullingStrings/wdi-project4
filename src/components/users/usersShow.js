@@ -1,7 +1,8 @@
 import React from 'react';
-import {  } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import Auth from '../../lib/Auth';
+import GoogleMap from '../GoogleMap/GoogleMap';
 
 class UsersShow extends React.Component {
   state = {
@@ -88,7 +89,14 @@ class UsersShow extends React.Component {
             <div className="image-tile col-md-6">
               <img src={this.state.user.image}
                 className="img-responsive" />
+              <hr />
+              {<Link to={`/users/${this.state.user.id}/edit`} className="standard-button">
+                <i className="fa fa-pencil" ></i>Profile Edit
+              </Link>}
             </div>
+          </div>
+          <div className="col-md-6">
+            <GoogleMap center={{ lat: 51.51, lng: -0.08 }} />
           </div>
         </div>
         <div className="row">
@@ -118,8 +126,8 @@ class UsersShow extends React.Component {
             <div className="row">
               {this.state.tracks && this.state.tracks.map(track => (
                 <div className="col-md-12" key={track.track.id}>
-                  <p>{track.track.name}</p>
-                  <p>{track.track.artists[0].name}</p>
+                  <h4>Track Name: <strong>{track.track.name}</strong></h4>
+                  <p> Artists: {track.track.artists[0].name}</p>
                   {track.track.preview_url && <audio controls>
                     <source src={track.track.preview_url} type="audio/mp3" />
                     Your browser does not support the audio element.

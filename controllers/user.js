@@ -8,6 +8,16 @@ function usersIndex(req, res, next) {
     .catch(next);
 }
 
+function usersCreate(req, res, next) {
+
+  if(req.file) req.body.image = req.file.filename;
+
+  User
+    .create(req.body)
+    .then(user => res.status(201).json(user))
+    .catch(next);
+}
+
 function usersShow(req, res, next) {
   User
     .findById(req.params.id)
@@ -16,14 +26,27 @@ function usersShow(req, res, next) {
       if(!user) return res.notFound();
       res.json(user);
     })
-    .catch((err) => {
-      console.log('ERROR IN CATCH ===========>', err);
-      next(err);
-    });
+    .catch(next);
+}
+
+function usersUpdate(req, res, next) {
+
+  User
+    .findById(req.params.id)
+    .exec()
+    .then((user) => {
+      if(!user) return res.notFound();
+      user = Object.assign(user, req.body);
+      return user.save();
+    })
+    .then(user => res.json(user))
+    .catch(next);
 }
 
 
 module.exports = {
+  create: usersCreate,
   index: usersIndex,
-  show: usersShow
+  show: usersShow,
+  update: usersUpdate
 };

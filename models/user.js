@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 // const bcrypt = require('bcrypt');
+const s3 = require('../lib/s3');
+
 
 const playlistSchema = new mongoose.Schema({
   playlistId: { type: String },
@@ -15,6 +17,36 @@ const userSchema = new mongoose.Schema({
   refreshToken: { type: String },
   playlists: [ playlistSchema ]
 });
+
+userSchema
+  .path('image')
+  .set(function getPreviousImage(image) {
+    this._image = this.image;
+    return image;
+  });
+
+userSchema
+  .virtual('imageSRC')
+  .get(function getImageSRC() {
+    if(!this.image) return null;
+    if(this.image.match(/^http/)) return this.image;
+    return `https://s3-eu-west-1.amazonaws.com/${process.env.AWS_BUCKET_NAME}/${this.image}`;
+  });
+
+userSchema.pre('save', function checkPreviousImage(next) {
+  if(this.isModified('image') && this._image && !this._image.match(/^http/)) {
+    return s3.deleteObject({ Key: this._image }, next);
+  }
+  next();
+});
+
+userSchema.pre('remove', function removeImage(next) {
+  if(this.image && !this.image.match(/^http/)) {
+    return s3.deleteObject({ Key: this.image }, next);
+  }
+  next();
+});
+
 
 // userSchema
 //   .virtual('passwordConfirmation')

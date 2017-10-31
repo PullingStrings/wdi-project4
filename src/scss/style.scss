@@ -7,6 +7,24 @@ body {
   color: #333;
 }
 
+div.drag-drop {
+  input[type=file] {
+    display: none;
+  }
+
+  div.dropzone {
+    height: 200px;
+    width: 200px;
+    background-color: #fafafa;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+
+.google-map {
+  height: 50vh;
+}
+
 h1 {
   font-size: 24px;
 }

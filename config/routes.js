@@ -3,12 +3,16 @@ const oauth  = require('../controllers/oauth');
 const users  = require('../controllers/user');
 const spotify = require('../controllers/spotify');
 const secureRoute = require('../lib/secureRoute');
+const imageUpload = require('../lib/imageUpload');
 
 router.route('/users')
-  .get(users.index);
+  .get(users.index)
+  .post(imageUpload, users.create);
 
 router.route('/users/:id')
-  .get(users.show);
+  .get(users.show)
+  .put(secureRoute,users.update)
+  .put(imageUpload, users.update);
 
 router.route('/playlists')
   .get(spotify.getUsersPlaylists);
