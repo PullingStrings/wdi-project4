@@ -15,10 +15,10 @@ const Navbar = ({ history }) => {
   return(
     <div className="NavBar">
       <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
-        <h1 className="navBar-brand"><Link to="/">Play-Gen</Link></h1>
-        <h4>Find playlists from people around you</h4>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div className="nav-link">
+          <Link to={Auth.isAuthenticated() ? '/users' : '/'}>Play-Gen</Link>
         </div>
+        <h4>Find playlists from people around you</h4>
         <OAuthButton provider="spotify">Login with Spotify</OAuthButton>
         { Auth.isAuthenticated() &&  <a href="#" onClick={logout} className="nav-link">LogOut</a> }
       </nav>

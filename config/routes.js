@@ -11,7 +11,7 @@ router.route('/users')
 
 router.route('/users/:id')
   .get(users.show)
-  .put(secureRoute, imageUpload, users.update)
+  .put(imageUpload, users.update)
   .delete(users.delete);
 
 router.route('/playlists')

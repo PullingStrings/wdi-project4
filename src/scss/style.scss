@@ -33,7 +33,29 @@ div.drag-drop {
 .nav-link {
   border-radius: 5px;
   background-color: rgba(0, 128, 0, 0.15);
+}
 
+.HomePageContent {
+  text-align: center;
+  // border: 1px solid white;
+
+
+    .HomePageContentInner {
+      border-radius: 3px;
+      height: 25%;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.59);
+      color: white;
+    }
+}
+
+.HomePage {
+  height: 100vh;
+  background-image: url('../images/headphones.jpg');
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .userIndex {

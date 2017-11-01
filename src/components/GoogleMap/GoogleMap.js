@@ -31,6 +31,20 @@ class GoogleMap extends React.Component {
     }
   }
 
+  componentDidUpdate() {
+
+    if(!this.props.user) return false;
+    if(this.props.user.location) {
+      this.marker = new google.maps.Marker({
+        position: this.props.user.location,
+        map: this.map
+      });
+
+      // adding the user (on the profile page) to the bounds
+
+    }
+  }
+
   onSuccess(position) {
     // console.log(position);
     const latLng = {
@@ -50,6 +64,12 @@ class GoogleMap extends React.Component {
     this.setState({ loading: false });
     this.mapCanvas.style.opacity = '1';
     this.mapCanvas.style.zIndex = '1';
+
+    // add the user who is currently viewing the page to the bounds
+    this.bounds = new google.maps.LatLngBounds();
+    this.bounds.extend(latLng);
+    this.bounds.extend(this.props.user.location);
+    this.map.fitBounds(this.bounds);
   }
 
   onError() {

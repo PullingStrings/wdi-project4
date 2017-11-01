@@ -96,7 +96,7 @@ class UsersShow extends React.Component {
             </div>
           </div>
           <div className="col-md-6">
-            <GoogleMap center={{ lat: 51.51, lng: -0.08 }} />
+            <GoogleMap user={this.state.user} center={{ lat: 51.51, lng: -0.08 }} />
           </div>
         </div>
         <div className="row">
