@@ -37,7 +37,8 @@ class GoogleMap extends React.Component {
     if(this.props.user.location) {
       this.marker = new google.maps.Marker({
         position: this.props.user.location,
-        map: this.map
+        map: this.map,
+        icon: 'https://cdn2.iconfinder.com/data/icons/snipicons/500/map-marker-128.png'
       });
 
       // adding the user (on the profile page) to the bounds

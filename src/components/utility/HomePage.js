@@ -1,5 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import OAuthButton from '../auth/OAuthButton';
+
 
 
 import Auth from '../../lib/Auth';
@@ -14,7 +16,9 @@ class HomePage extends React.Component {
         <div className="HomePageContent">
           <div className="HomePageContentInner">
             <h1>FIND.LISTEN.FOLLOW</h1>
-            <a className="btn btn-primary" href="#">Login</a>
+            <div className="HomePageLoginButton">
+              <OAuthButton provider="spotify">Login with Spotify</OAuthButton>
+            </div>
           </div>
         </div>
       </header>

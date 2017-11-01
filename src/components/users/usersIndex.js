@@ -4,7 +4,6 @@ import React from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 import Auth from '../../lib/Auth';
-
 class UsersIndex extends React.Component {
   state = {
     users: [],
@@ -24,10 +23,14 @@ class UsersIndex extends React.Component {
     });
 
     const users = Object.assign(this.state.users, usersWithDistance);
-    console.log('users', users);
-    this.setState({ users }, console.log(this.state.users));
+    // console.log('users', users);
+    this.setState({ users }, console.log('8====D',this.state.users));
 
-    // console.log(usersWithDistance);
+    console.log('users with distance', usersWithDistance);
+    const sortedUsers = users.sort((a, b) => {
+      return a.distanceAway - b.distanceAway;
+    });
+    this.setState({ users: sortedUsers });
   }
 
   onError() {
