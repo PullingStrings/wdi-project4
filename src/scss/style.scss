@@ -1,6 +1,5 @@
-
-// @import "UsersIndex";
 @import url('https://fonts.googleapis.com/css?family=Raleway:300');
+
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -27,19 +26,26 @@ div.drag-drop {
   height: 50vh;
 }
 
+.navbar {
+  background-color: white;
+}
+
+.nav-link {
+  border-radius: 5px;
+  background-color: rgba(0, 128, 0, 0.15);
+
+}
+
+.userIndex {
+  border: 2px solid black;
+  height: 100vh;
+  background-image: url();
+}
+
 h1 {
   font-size: 24px;
 }
 
-.containerIndex {
-  min-height: 100vh;
-}
-
-.boxMiddle {
-  padding: 20px;
-  text-align: center;
-
-}
 
 .fa-cutlery {
   position: relative;

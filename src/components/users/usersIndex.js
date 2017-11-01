@@ -1,8 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
-
-// import Auth from '../../lib/Auth';
+import Auth from '../../lib/Auth';
 
 class UsersIndex extends React.Component {
   state = {
@@ -18,16 +17,14 @@ class UsersIndex extends React.Component {
 
   render() {
     return (
-      <div id="userIndex">
-        <div className="row">
-          {this.state.users.map(user => {
-            return(
-              <div key={user.id} className="col-md-4 col-sm-6 col-xs-12">
-                <Link to={`/users/${user.id}`}>{user.username}</Link>
-              </div>
-            );
-          })}
-        </div>
+      <div className="userIndex">
+        {this.state.users.map(user => {
+          return(
+            <div key={user.id} className="col-md-4 col-sm-6 col-xs-12">
+              {Auth.isAuthenticated && <Link to={`/users/${user.id}`}>{user.username}</Link>}
+            </div>
+          );
+        })}
       </div>
     );
   }
