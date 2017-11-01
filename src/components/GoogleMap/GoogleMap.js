@@ -4,8 +4,19 @@ import React from 'react';
 
 class GoogleMap extends React.Component {
 
+  state = {
+    loading: false
+  }
+
+  componentWillMount() {
+    this.setState({ loading: true });
+  }
+
   componentDidMount() {
-    // console.log(this.mapCanvas);
+    this.mapCanvas.style.position = 'relative';
+    this.mapCanvas.style.opacity = '0';
+    this.mapCanvas.style.zIndex = '-1';
+
     this.map = new google.maps.Map(this.mapCanvas, {
       center: this.props.center || {lat: 51.51, lng: -0.08},
       zoom: 14
@@ -35,6 +46,10 @@ class GoogleMap extends React.Component {
       position: latLng,
       map: this.map
     });
+
+    this.setState({ loading: false });
+    this.mapCanvas.style.opacity = '1';
+    this.mapCanvas.style.zIndex = '1';
   }
 
   onError() {
@@ -47,10 +62,13 @@ class GoogleMap extends React.Component {
     this.map = null;
   }
 
-
   render() {
+    const { loading } = this.state;
     return (
-      <div className="google-map" ref={element => this.mapCanvas = element}></div>
+      <div>
+        { loading && <p>Loading map...</p> }
+        <div className="google-map" ref={element => this.mapCanvas = element}></div>
+      </div>
     );
   }
 }

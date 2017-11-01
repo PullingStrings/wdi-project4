@@ -43,10 +43,23 @@ function usersUpdate(req, res, next) {
     .catch(next);
 }
 
+function usersDelete(req, res, next) {
+  User
+    .findById(req.params.id)
+    .exec()
+    .then((user) => {
+      if(!user) return res.notFound();
+      return user.remove();
+    })
+    .then(() => res.status(204).end())
+    .catch(next);
+}
+
 
 module.exports = {
   create: usersCreate,
   index: usersIndex,
   show: usersShow,
-  update: usersUpdate
+  update: usersUpdate,
+  delete: usersDelete
 };

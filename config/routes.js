@@ -11,8 +11,8 @@ router.route('/users')
 
 router.route('/users/:id')
   .get(users.show)
-  .put(secureRoute,users.update)
-  .put(imageUpload, users.update);
+  .put(secureRoute, imageUpload, users.update)
+  .delete(users.delete);
 
 router.route('/playlists')
   .get(spotify.getUsersPlaylists);

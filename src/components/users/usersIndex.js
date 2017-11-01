@@ -18,7 +18,7 @@ class UsersIndex extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="userIndex">
         <div className="row">
           {this.state.users.map(user => {
             return(
