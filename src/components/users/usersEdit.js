@@ -4,13 +4,16 @@ import Auth from '../../lib/Auth';
 
 import UsersForm from './usersForm';
 
+import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+
 class UsersEdit extends React.Component {
   state = {
     user: {
       username: '',
-      base64: ''
+      base64: '',
+      location: {}
     },
-    errors: {}
+    address: ''
   };
 
   componentDidMount() {
@@ -27,10 +30,22 @@ class UsersEdit extends React.Component {
     });
   }
 
+  handleAutocomplete = (address) => this.setState({ address });
 
-  handleSubmit = (e) => {
+  handleFormSubmit = (e) => {
     e.preventDefault();
 
+    geocodeByAddress(this.state.address)
+      .then(results => getLatLng(results[0]))
+      .then(latLng => {
+        const user = Object.assign({}, this.state.user, { location: latLng });
+        this.setState({ user }, this.handleSubmit);
+      });
+  }
+
+
+
+  handleSubmit = () => {
     Axios
       .put(`/api/users/${this.props.match.params.id}`, this.state.user, {
         headers: { 'Authorization': 'Bearer ' + Auth.getToken() }
@@ -52,8 +67,10 @@ class UsersEdit extends React.Component {
     return (
       <UsersForm
         history={this.props.history}
-        handleSubmit={this.handleSubmit}
+        handleSubmit={this.handleFormSubmit}
         handleChange={this.handleChange}
+        handleAutocomplete={this.handleAutocomplete}
+        address={this.state.address}
         getDataURL={this.getDataURL}
         user={this.state.user}
         errors={this.state.errors}

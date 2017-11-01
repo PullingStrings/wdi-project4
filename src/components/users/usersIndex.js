@@ -12,7 +12,7 @@ class UsersIndex extends React.Component {
   componentWillMount() {
     Axios
       .get('/api/users')
-      .then(res => this.setState({ users: res.data }, () => console.log(res)))
+      .then(res => this.setState({ users: res.data }))
       .catch(err => console.log(err));
   }
 

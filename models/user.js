@@ -10,11 +10,15 @@ const playlistSchema = new mongoose.Schema({
 
 const userSchema = new mongoose.Schema({
   username: { type: String },
-  email: { type: String},
+  email: { type: String },
   password: { type: String },
   spotifyId: { type: String },
   image: { type: String },
   refreshToken: { type: String },
+  location: {
+    lat: { type: Number },
+    lng: { type: Number }
+  },
   playlists: [ playlistSchema ]
 });
 

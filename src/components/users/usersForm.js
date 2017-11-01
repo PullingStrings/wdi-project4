@@ -1,8 +1,15 @@
 import React from 'react';
 import DragDrop from '../utility/DragDrop';
 
+import PlacesAutocomplete from 'react-places-autocomplete';
 
-function UsersForm({ handleSubmit, handleChange, user }) {
+
+function UsersForm({ handleSubmit, handleChange, handleAutocomplete, address, user }) {
+  const inputProps = {
+    value: address,
+    onChange: handleAutocomplete
+  };
+
   return (
     <div className="row">
       <form onSubmit={handleSubmit} className="col-md-6">
@@ -23,6 +30,10 @@ function UsersForm({ handleSubmit, handleChange, user }) {
             onChange={handleChange}
             value={user.base64 || user.imageSRC}
           />
+        </div>
+        <div className="form-group">
+          <label htmlFor="location">location</label>
+          <PlacesAutocomplete inputProps={inputProps} />
         </div>
         <div>
           <button className="save-button">Save</button>
