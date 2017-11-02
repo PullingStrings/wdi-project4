@@ -6,6 +6,7 @@ const User = require('../models/user');
 let refreshToken = null;
 
 function spotify(req, res, next) {
+  console.log('REACHED SPOTIFY OAUTH');
   console.log('CODE', req.body.code);
   return rp({
     method: 'POST',
@@ -24,6 +25,7 @@ function spotify(req, res, next) {
     json: true
   })
     .then(token => {
+      console.log('TOKEN', token);
       refreshToken = token.refresh_token;
       return rp({
         method: 'GET',
@@ -35,6 +37,7 @@ function spotify(req, res, next) {
       });
     })
     .then(profile => {
+      console.log('PROFILE', profile);
       return User
         .findOne({ $or: [{ spotify: profile.id }, { email: profile.email }] })
         .then((user) => {

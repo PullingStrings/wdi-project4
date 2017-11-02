@@ -1,7 +1,6 @@
 import React from 'react';
 import {  withRouter, Link } from 'react-router-dom';
 import Auth from '../../lib/Auth';
-import OAuthButton from '../auth/OAuthButton';
 
 const Navbar = ({ history }) => {
 
