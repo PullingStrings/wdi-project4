@@ -68,9 +68,35 @@ div.drag-drop {
 }
 
 .userIndex {
-  border: 2px solid black;
+  // border: 2px solid black;
   height: 100vh;
-  background-image: url();
+  background-image: url('../images/map.jpg');
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.13);
+  background-blend-mode: overlay;
+}
+
+.usersIndexButton {
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.63);
+  color: black;
+  border: 1px solid;
+  float:left;
+  width: max-content;
+    span {
+
+    }
+}
+
+
+.UsersSection {
+  float:left;
+  padding: 4px;
+  margin: 4px;
+    a {
+      color: black;
+      font-weight: 400;
+    }
 }
 
 h1 {

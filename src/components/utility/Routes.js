@@ -6,8 +6,6 @@ import UsersShow from  '../users/UsersShow';
 import UsersEdit from '../users/UsersEdit';
 import HomePage from '../utility/HomePage';
 
-// import Login from '../auth/Login';
-// import Register from '../auth/Register';
 
 const Routes = () => {
   return (
@@ -16,8 +14,6 @@ const Routes = () => {
       <Route exact path="/users" component={UsersIndex} />
       <Route exact path="/users/:id" component={UsersShow} />
       <Route exact path="/users/:id/edit" component={UsersEdit} />
-      {/* <Route exact path="/login" component={Login} />
-      <Route exact path="/register" component={Register} /> */}
     </Switch>
   );
 };

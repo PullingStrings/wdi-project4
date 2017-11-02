@@ -24,9 +24,9 @@ class UsersIndex extends React.Component {
 
     const users = Object.assign(this.state.users, usersWithDistance);
     // console.log('users', users);
-    this.setState({ users }, console.log('8====D',this.state.users));
+    this.setState({ users });
 
-    console.log('users with distance', usersWithDistance);
+    // console.log('users with distance', usersWithDistance);
     const sortedUsers = users.sort((a, b) => {
       return a.distanceAway - b.distanceAway;
     });
@@ -58,8 +58,12 @@ class UsersIndex extends React.Component {
       <div className="userIndex">
         {this.state.users.map(user => {
           return(
-            <div key={user.id} className="col-md-4 col-sm-6 col-xs-12">
-              {Auth.isAuthenticated && <Link to={`/users/${user.id}`}>{user.username} {user.distanceAway && <span>{user.distanceAway}km away</span>}</Link>}
+            <div key={user.id} className="UsersSection">
+              <div  className="col-md-4 col-sm-6 col-xs-12">
+                <button className="usersIndexButton">
+                  {Auth.isAuthenticated && <Link to={`/users/${user.id}`}>{user.username} {user.distanceAway && <p>{user.distanceAway} is km away</p>}</Link>}
+                </button>
+              </div>
             </div>
           );
         })}

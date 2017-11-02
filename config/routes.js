@@ -7,12 +7,12 @@ const imageUpload = require('../lib/imageUpload');
 
 router.route('/users')
   .get(users.index)
-  .post(imageUpload, users.create);
+  .post(secureRoute,imageUpload, users.create);
 
 router.route('/users/:id')
   .get(users.show)
-  .put(imageUpload, users.update)
-  .delete(users.delete);
+  .put(secureRoute,imageUpload, users.update)
+  .delete(secureRoute,users.delete);
 
 router.route('/playlists')
   .get(spotify.getUsersPlaylists);
