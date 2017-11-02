@@ -14,11 +14,11 @@ router.route('/users/:id')
   .put(secureRoute,imageUpload, users.update)
   .delete(secureRoute,users.delete);
 
-router.route('/playlists')
-  .get(spotify.getUsersPlaylists);
-
 router.route('/oauth/spotify')
   .post(oauth.spotify);
+
+router.route('/playlists')
+  .get(spotify.getUsersPlaylists);
 
 router.route('/spotify/users/:spotifyId')
   .get(spotify.getUsersPlaylists);

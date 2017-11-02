@@ -11,6 +11,10 @@ body {
 }
 
 div.drag-drop {
+  margin: auto;
+  width: 100%;
+  border-radius: 3px;
+  padding: 10px;
   input[type=file] {
     display: none;
   }
@@ -18,9 +22,9 @@ div.drag-drop {
   div.dropzone {
     height: 200px;
     width: 200px;
-    background-color: #fafafa;
     background-size: contain;
     background-repeat: no-repeat;
+    margin: -9px;
   }
 }
 
@@ -38,6 +42,8 @@ div.drag-drop {
   color: black;
   border: 1px solid black;
 }
+
+//=================homepage===================
 
 .HomePageContent {
   text-align: center;
@@ -70,6 +76,40 @@ div.drag-drop {
   align-items: center;
 }
 
+//=====================================
+
+//==============edit form page =================
+
+.EditSection {
+    margin: auto;
+    width: 50%;
+    border-radius: 3px;
+    padding: 10px;
+}
+
+.EditForm {
+  margin: auto;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 10px;
+    input {
+      border: 1px solid black;
+      border-radius: 3px;
+        button {
+          border-radius: 3px;
+        }
+    }
+}
+
+
+
+//======================================
+
+
+
+//==================Index page==================
+
 .userIndex {
   // border: 2px solid black;
   height: 100vh;
@@ -101,6 +141,8 @@ div.drag-drop {
       font-weight: 400;
     }
 }
+
+//===============================
 
 h1 {
   font-size: 24px;
@@ -184,6 +226,8 @@ main {
   padding-top: 50px;
 }
 
+//========== usersShow ===============
+
 .carousel {
   background-color: white;
   .control-dots {
@@ -224,6 +268,7 @@ main {
     background: rgba(0, 0, 0, 0);
 }
 
+// ======================================
 
 
 @media screen and (max-width: 750px) {
