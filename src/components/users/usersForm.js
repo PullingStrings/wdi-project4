@@ -11,7 +11,7 @@ function UsersForm({ handleSubmit, handleChange, handleAutocomplete, address, us
   };
 
   return (
-    <div className="container">
+    <div className="EditContainer">
       <div className="EditSection">
         <div className="row">
           <form onSubmit={handleSubmit} className="EditForm">

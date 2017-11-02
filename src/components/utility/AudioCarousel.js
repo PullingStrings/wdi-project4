@@ -3,7 +3,6 @@ import { Carousel } from 'react-responsive-carousel';
 
 class AudioCarousel extends Component {
   render() {
-    console.log(this.props.tracks);
     return (
       <Carousel showThumbs={false}>
         {this.props.tracks.map(track => (

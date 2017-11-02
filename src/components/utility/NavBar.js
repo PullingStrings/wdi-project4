@@ -20,6 +20,7 @@ const Navbar = ({ history }) => {
         </div>
         <h4>Find playlists from people around you</h4>
         <OAuthButton provider="spotify">Login with Spotify</OAuthButton>
+        { Auth.isAuthenticated() && <Link className="nav-link" to={`/users/${Auth.getPayload().userId}`}>My Profile</Link> }
         { Auth.isAuthenticated() &&  <a href="#" onClick={logout} className="nav-link">LogOut</a> }
       </nav>
     </div>

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import Auth from '../../lib/Auth';
 class UsersIndex extends React.Component {
   state = {
@@ -37,6 +37,13 @@ class UsersIndex extends React.Component {
     console.log('The geolocation service failed, or your browser doesn\'t support geolocation.');
   }
 
+  getUsers = () => {
+    Axios
+      .get('/api/users')
+      .then(res => this.setState({ users: res.data }))
+      .catch(err => console.log(err));
+  }
+
   componentWillMount() {
 
     if (navigator.geolocation) {
@@ -47,15 +54,27 @@ class UsersIndex extends React.Component {
       this.handleError();
     }
 
+    this.getUsers();
+  }
+
+  deleteUser = id => {
     Axios
-      .get('/api/users')
-      .then(res => this.setState({ users: res.data }))
+      .delete(`/api/users/${id}`, {
+        headers: { 'Authorization': 'Bearer ' + Auth.getToken() }
+      })
+      .then(() => {
+        const users = this.state.users.filter(user => {
+          return user.id !== id;
+        });
+        this.setState({ users });
+      })
       .catch(err => console.log(err));
   }
 
   render() {
     return (
       <div className="userIndex">
+        <h1><strong>Wait to see how far your friends are...</strong></h1>
         {this.state.users.map(user => {
           return(
             <div key={user.id} className="UsersSection">
@@ -63,7 +82,11 @@ class UsersIndex extends React.Component {
                 <button className="usersIndexButton">
                   {Auth.isAuthenticated && <Link to={`/users/${user.id}`}>{user.username} {user.distanceAway && <p>{user.distanceAway} is km away</p>}</Link>}
                 </button>
+                {Auth.isAuthenticated() && <button className="usersIndexButton" onClick={() => this.deleteUser(user.id)}>
+                  <i className="fa fa-trash" aria-hidden="true"></i>Remove Friend
+                </button>}
               </div>
+
             </div>
           );
         })}
@@ -72,4 +95,4 @@ class UsersIndex extends React.Component {
   }
 }
 
-export default UsersIndex;
+export default withRouter(UsersIndex);

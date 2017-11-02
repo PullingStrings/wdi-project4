@@ -10,6 +10,10 @@ body {
   color: #333;
 }
 
+.container {
+  padding: 18px;
+}
+
 div.drag-drop {
   margin: auto;
   width: 100%;
@@ -35,12 +39,20 @@ div.drag-drop {
 
 .navbar {
   background-color: white;
+  box-shadow: 3px 3px 5px #888888;
 }
 
 .nav-link {
   border-radius: 5px;
   color: black;
   border: 1px solid black;
+  &:hover {
+    transition: 0.5s;
+    text-decoration: none;
+    background: black;
+    color: white;
+    padding: 5px;
+  }
 }
 
 //=================homepage===================
@@ -49,21 +61,21 @@ div.drag-drop {
   text-align: center;
   // border: 1px solid white;
 
-    .HomePageContentInner {
-      border-radius: 3px;
-      height: 25%;
-      padding: 20px;
-      background-color: rgba(255, 255, 255, 0.48);
-      color: #000000;
-      border: 1px solid white;
+  .HomePageContentInner {
+    border-radius: 3px;
+    height: 25%;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.48);
+    color: #000000;
+    border: 1px solid white;
 
-      .HomePageLoginButton {
-        a {
-          background: white;
-          color: black;
-        }
+    .HomePageLoginButton {
+      a {
+        background: white;
+        color: black;
       }
     }
+  }
 
 }
 
@@ -76,15 +88,26 @@ div.drag-drop {
   align-items: center;
 }
 
-//=====================================
+//==============================================
 
 //==============edit form page =================
 
 .EditSection {
-    margin: auto;
-    width: 50%;
-    border-radius: 3px;
-    padding: 10px;
+  margin: auto;
+  width: 50%;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+.EditContainer {
+  height: 100vh;
+  background-image: url('../images/listening.jpg');
+  background-blend-mode: overlay;
+  background: contain;
+  background-color: rgba(64, 64, 65, 0.99);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .EditForm {
@@ -93,17 +116,28 @@ div.drag-drop {
   border: 1px solid black;
   border-radius: 3px;
   padding: 10px;
-    input {
-      border: 1px solid black;
+  background-color: white;
+  input {
+    border: 1px solid black;
+    border-radius: 3px;
+    button {
       border-radius: 3px;
-        button {
-          border-radius: 3px;
-        }
     }
+  }
 }
 
-
-
+// img {
+//   &:hover {
+//     transition: 1s;
+//     animation: jiggle 1s infinite;
+//   }
+// }
+//
+// @keyframes jiggle {
+//   0% {transform: scale(1);}
+//   50% {transform: scale(1.1);}
+//   100% {transform: scale(1);}
+// }
 //======================================
 
 
@@ -115,20 +149,25 @@ div.drag-drop {
   height: 100vh;
   background-image: url('../images/map.jpg');
   background-position: center;
-  background-color: rgba(0, 0, 0, 0.13);
+  background-color: rgba(255, 255, 255, 0.13);
   background-blend-mode: overlay;
+  h1{
+    padding: 3px;
+    align-content: center;
+  }
 }
 
 .usersIndexButton {
+  
   border-radius: 3px;
-  background: rgba(255, 255, 255, 0.63);
+  background: rgba(255, 255, 255, 0.86);
   color: black;
   border: 1px solid;
   float:left;
   width: max-content;
-    span {
+  span {
 
-    }
+  }
 }
 
 
@@ -136,10 +175,10 @@ div.drag-drop {
   float:left;
   padding: 4px;
   margin: 4px;
-    a {
-      color: black;
-      font-weight: 400;
-    }
+  a {
+    color: black;
+    font-weight: 400;
+  }
 }
 
 //===============================
@@ -246,26 +285,26 @@ main {
 }
 
 .carousel.carousel-slider .control-arrow {
-    font-size: 26px;
-    padding: 5px;
-    background-color: gray;
-    height: 80%;
+  font-size: 26px;
+  padding: 5px;
+  background-color: gray;
+  height: 80%;
 }
 
 .carousel-audio {
   background-color: blue;
   border-radius: 3px;
-    input {
-      color: red;
-    }
+  input {
+    color: red;
+  }
 }
 
 .carousel .slide {
-    min-width: 100%;
-    margin: 0;
-    position: relative;
-    text-align: center;
-    background: rgba(0, 0, 0, 0);
+  min-width: 100%;
+  margin: 0;
+  position: relative;
+  text-align: center;
+  background: rgba(0, 0, 0, 0);
 }
 
 // ======================================
