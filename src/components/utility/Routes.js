@@ -1,9 +1,9 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import UsersIndex from '../users/UsersIndex';
-import UsersShow from  '../users/UsersShow';
-import UsersEdit from '../users/UsersEdit';
+import UsersIndex from '../users/usersIndex';
+import UsersShow from  '../users/usersShow';
+import UsersEdit from '../users/usersEdit';
 import HomePage from '../utility/HomePage';
 
 
