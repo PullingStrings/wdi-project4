@@ -7,6 +7,7 @@ import { withRouter } from 'react-router-dom';
 
 class OAuthButton extends React.Component {
   componentWillMount() {
+    console.log('component will mount');
     // grab `provider`, `location` and `history` from `this.props`
     const { provider, location, history } = this.props;
     // get the full provider data from `OAuth` class
@@ -15,6 +16,7 @@ class OAuthButton extends React.Component {
 
     // if there's no code in the address bar OR the provider does not match that in localStorage, stop here.
     if(!location.search.match(/code/) || localStorage.getItem('provider') !== provider) return false;
+    console.log('about to send POST request');
 
     // send the code (and redirectUri) to the API
     Axios.post(this.provider.url, this.getData())
@@ -29,6 +31,7 @@ class OAuthButton extends React.Component {
     const data = queryString.parse(this.props.location.search);
     // add the current URI as a redirectUri for facebook (and possibly some other oAuth providers)
     data.redirectUri = window.location.origin + window.location.pathname;
+    console.log('DATA', data);
     return data;
   }
 

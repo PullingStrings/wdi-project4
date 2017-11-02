@@ -6,10 +6,12 @@ const User = require('../models/user');
 let refreshToken = null;
 
 function spotify(req, res, next) {
+  console.log('CODE', req.body.code);
   return rp({
     method: 'POST',
     url: 'https://accounts.spotify.com/api/token',
     form: {
+      // redirect_uri: 'http://localhost:8000/',
       redirect_uri: env === 'production' ? 'https://playgenfinder.herokuapp.com/' : 'http://localhost:8000/',
       grant_type: 'authorization_code',
       client_id: process.env.SPOTIFY_CLIENT_ID,
