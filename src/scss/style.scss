@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:300');
 
+@import 'vendor/carousel';
+
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -24,6 +26,7 @@ div.drag-drop {
 
 .google-map {
   height: 50vh;
+  border: 1px solid black;
 }
 
 .navbar {
@@ -180,6 +183,47 @@ i {
 main {
   padding-top: 50px;
 }
+
+.carousel {
+  background-color: white;
+  .control-dots {
+    line-height: 0.7;
+    display: none;
+  }
+}
+
+.userShowCarousel{
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 4px;
+  margin: 4px;
+
+}
+
+.carousel.carousel-slider .control-arrow {
+    font-size: 26px;
+    padding: 5px;
+    background-color: gray;
+    height: 80%;
+}
+
+.carousel-audio {
+  background-color: blue;
+  border-radius: 3px;
+    input {
+      color: red;
+    }
+}
+
+.carousel .slide {
+    min-width: 100%;
+    margin: 0;
+    position: relative;
+    text-align: center;
+    background: rgba(0, 0, 0, 0);
+}
+
 
 
 @media screen and (max-width: 750px) {

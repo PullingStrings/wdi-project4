@@ -86,7 +86,7 @@ class GoogleMap extends React.Component {
   render() {
     const { loading } = this.state;
     return (
-      <div>
+      <div className="GoogleMapShow">
         { loading && <p>Loading map...</p> }
         <div className="google-map" ref={element => this.mapCanvas = element}></div>
       </div>

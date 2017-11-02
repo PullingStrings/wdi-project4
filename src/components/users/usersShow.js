@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import Auth from '../../lib/Auth';
 import GoogleMap from '../GoogleMap/GoogleMap';
+import AudioCarousel from '../utility/AudioCarousel';
 
 class UsersShow extends React.Component {
   state = {
@@ -82,7 +83,7 @@ class UsersShow extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <div className="row">
           <div className="col-md-6">
             <h1>{this.state.user.username}</h1>
@@ -96,7 +97,7 @@ class UsersShow extends React.Component {
             </div>
           </div>
           <div className="col-md-6">
-            <GoogleMap user={this.state.user} center={{ lat: 51.51, lng: -0.08 }} />
+            <GoogleMap className="GoogleMapShow" user={this.state.user} center={{ lat: 51.51, lng: -0.08 }} />
           </div>
         </div>
         <div className="row">
@@ -121,20 +122,9 @@ class UsersShow extends React.Component {
               ))}
             </div>
           </div>
-          {/* right hand side column */}
           <div className="col-md-6">
-            <div className="row">
-              {this.state.tracks && this.state.tracks.map(track => (
-                <div className="col-md-12" key={track.track.id}>
-                  <h4>Track Name: <strong>{track.track.name}</strong></h4>
-                  <p> Artists: {track.track.artists[0].name}</p>
-                  {track.track.preview_url && <audio controls>
-                    <source src={track.track.preview_url} type="audio/mp3" />
-                    Your browser does not support the audio element.
-                  </audio>}
-                </div>
-              ))}
-            </div>
+            {/* right hand side column */}
+            { this.state.tracks.length ? <AudioCarousel tracks={this.state.tracks} /> : null}
           </div>
         </div>
         <div className="row">
@@ -166,3 +156,25 @@ class UsersShow extends React.Component {
 }
 
 export default UsersShow;
+
+//       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+//     <div class="carousel-inner">
+//       <div class="carousel-item active">
+//         <img class="d-block w-100" src="..." alt="First slide">
+//       </div>
+//       <div class="carousel-item">
+//         <img class="d-block w-100" src="..." alt="Second slide">
+//       </div>
+//       <div class="carousel-item">
+//         <img class="d-block w-100" src="..." alt="Third slide">
+//       </div>
+//     </div>
+//     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+//       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+//       <span class="sr-only">Previous</span>
+//     </a>
+//     <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+//       <span class="carousel-control-next-icon" aria-hidden="true"></span>
+//       <span class="sr-only">Next</span>
+//     </a>
+// </div>
