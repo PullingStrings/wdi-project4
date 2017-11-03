@@ -15,7 +15,7 @@ const Navbar = ({ history }) => {
     <div className="NavBar">
       <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
         <div className="nav-link">
-          <Link to={Auth.isAuthenticated() ? '/users' : '/'}>Play-Gen</Link>
+          <Link to={Auth.isAuthenticated() ? '/users' : '/'}>Follow & Find Playlists</Link>
         </div>
         <h4>Find playlists from people around you</h4>
         { Auth.isAuthenticated() && <Link className="nav-link" to={`/users/${Auth.getPayload().userId}`}>My Profile</Link> }
