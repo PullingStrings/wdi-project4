@@ -91,7 +91,7 @@ class UsersShow extends React.Component {
               <img src={this.state.user.image}
                 className="img-responsive" />
               <hr />
-              {<Link to={`/users/${this.state.user.id}/edit`} className="standard-button">
+              {Auth.isAuthenticated() && this.state.user.id === this.state.currentUser.id && <Link to={`/users/${this.state.user.id}/edit`} className="standard-button">
                 <i className="fa fa-pencil" ></i>Profile Edit
               </Link>}
             </div>

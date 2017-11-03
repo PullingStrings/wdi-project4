@@ -82,9 +82,6 @@ class UsersIndex extends React.Component {
                 <button className="usersIndexButton">
                   {Auth.isAuthenticated && <Link to={`/users/${user.id}`}>{user.username} {user.distanceAway && <p>{user.distanceAway} is km away</p>}</Link>}
                 </button>
-                {Auth.isAuthenticated() && <button className="usersIndexButton" onClick={() => this.deleteUser(user.id)}>
-                  <i className="fa fa-trash" aria-hidden="true"></i>Remove Friend
-                </button>}
               </div>
 
             </div>

@@ -14,6 +14,10 @@ body {
   padding: 18px;
 }
 
+button {
+  cursor: pointer;
+}
+
 div.drag-drop {
   margin: auto;
   width: 100%;
@@ -158,7 +162,7 @@ div.drag-drop {
 }
 
 .usersIndexButton {
-  
+
   border-radius: 3px;
   background: rgba(255, 255, 255, 0.86);
   color: black;
