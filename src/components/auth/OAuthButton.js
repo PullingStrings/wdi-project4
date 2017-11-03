@@ -20,7 +20,10 @@ class OAuthButton extends React.Component {
 
     // send the code (and redirectUri) to the API
     Axios.post(this.provider.url, this.getData())
-      .then(res => Auth.setToken(res.data.token, res.data.refreshToken)) // store the token in localStorage (you are now 'logged in')
+      .then(res => {
+        console.log('INSIDE SPOTIFY LOGIN POST THEN');
+        Auth.setToken(res.data.token, res.data.refreshToken);
+      }) // store the token in localStorage (you are now 'logged in')
       .then(() => localStorage.removeItem('provider')) // remove the chosen provider from localStorage
       .then(() => history.replace(location.pathname)) // remove the query string from the address bar
       .then(() => history.push(`/users/${Auth.getPayload().userId}/edit`)); // redirect to the home page

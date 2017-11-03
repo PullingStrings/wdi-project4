@@ -51,6 +51,7 @@ function spotify(req, res, next) {
           user.spotifyId = profile.id;
           user.refreshToken = refreshToken;
           if(profile.images.length) user.image = profile.images[0].url;
+          console.log('THE USER TO SAVE', user);
           return user.save();
         });
     })
