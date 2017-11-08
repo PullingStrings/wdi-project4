@@ -12,18 +12,19 @@ class HomePage extends React.Component {
   }
   render() {
     return(
-      <header className="HomePage">
+      <section className="HomePage">
         <div className="HomePageContent">
           <div className="HomePageContentInner">
             <h1>FIND.LISTEN.FOLLOW</h1>
             <div className="HomePageLoginButton">
               <OAuthButton provider="spotify">Login with Spotify</OAuthButton>
-              { ' ' }
-              <h1>Login with your spotify account and place your location....See what people around you are listening to</h1>
             </div>
           </div>
+          <div className="HomePageHeading">
+            <p><strong>Login with your spotify account and place your location....See what people around you are listening to</strong></p>
+          </div>
         </div>
-      </header>
+      </section>
     );
   }
 }

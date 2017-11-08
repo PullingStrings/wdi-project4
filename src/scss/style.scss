@@ -47,9 +47,12 @@ div.drag-drop {
 }
 
 .nav-link {
-  border-radius: 5px;
+  border-radius: 3px;
   color: black;
   border: 1px solid black;
+    a {
+      color: black;
+    }
   }
 
 //=================homepage===================
@@ -68,8 +71,10 @@ div.drag-drop {
 
     .HomePageLoginButton {
       a {
-        background: white;
-        color: black;
+        background: #1db954;
+        color: white;
+        border-radius: 33px;
+        border: none;
       }
     }
   }
@@ -83,6 +88,14 @@ div.drag-drop {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.HomePageHeading {
+  color: white;
+    margin: 12px;
+    padding: 24px;
+    border-radius: 3px;
+    background-color: rgba(30, 35, 27, 0.41);
 }
 
 //==============================================
