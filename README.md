@@ -45,12 +45,14 @@ To run the code,
 
 ### Finding Playlist's
 
-The web app is a locator to find playlist's where ever you are dending on how many user's of the app are in your area. 
+The web app is a locator to find playlist's where ever you are denpding on how many users, of the app, their are in your area. 
+
 ![screen shot 2017-11-09 at 15 08 20](https://user-images.githubusercontent.com/27218761/32612320-e0c45fa6-c55f-11e7-91db-144e8ddfa38d.png)
 
 ### What to look for 
 
 You will get a slick look homepage that will ask you to login with your spotify account.
+
 ![screen shot 2017-11-09 at 14 49 42](https://user-images.githubusercontent.com/27218761/32612028-11ae7152-c55f-11e7-9c0c-16ffddfacc3b.png)
 
 
@@ -58,21 +60,24 @@ You will get a slick look homepage that will ask you to login with your spotify 
 
 ### Insert your location
 
-Once you have logged in you can change or insert a profile picture and insert your wanted location.
+Once you have logged in you can change or insert a profile picture and insert your prefered location.
 
 ![screen shot 2017-11-09 at 14 50 14](https://user-images.githubusercontent.com/27218761/32612065-2d860f34-c55f-11e7-804f-2b10effee66c.png)
 
-You will then land on your profile page and see where you are in relation to other user's and also be able to view the playlists that you follow on your on spotify
+You will then land on your profile page and see where you are in relation to other user's and also be able to view the playlists that you follow on your on spotify.
+
 ![screen shot 2017-11-09 at 14 50 28](https://user-images.githubusercontent.com/27218761/32612120-5378399c-c55f-11e7-9958-d88fc2222c58.png)
 
 ### Preview music
 
-If you would like to preview song's on your playlists...click on the album cover and scroll thru the preview menu under the google map
+If you would like to preview song's on your playlists...click on the album cover and scroll through the preview menu under the google map preview.
+
 ![screen shot 2017-11-09 at 14 53 43](https://user-images.githubusercontent.com/27218761/32612140-6a753f1e-c55f-11e7-9c46-b5b4f229ceae.png)
 
 ### Locate other user's around you 
 
 If you would like to see other user's around you click on the "follow & find playlists" and you will see where other user's are in relation to your self.
+
 ![screen shot 2017-11-09 at 15 05 50](https://user-images.githubusercontent.com/27218761/32612175-833c09ec-c55f-11e7-9cd0-aa3f8509bc66.png)
 
 ### Follow playlists
